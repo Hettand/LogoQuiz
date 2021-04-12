@@ -1,0 +1,145 @@
+body {
+    overflow-x: hidden;
+}
+
+#panel-juego {
+    min-height: Calc(100vh - 300px);
+    margin: auto;
+}
+
+.navbar-nav {
+    font-size: 18px;
+}
+
+#pistas-disponibles {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
+    min-height: Calc(100vh - 50px);
+    display: flex;
+}
+
+.sombra {
+    text-shadow: 2px 5px 2px #6666;
+}
+
+.borde {
+    border: 2px solid #84096b;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+a.nav-link {
+    color: #000;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #ecdeef;
+}
+
+#player {
+    height: 40px;
+    background-color: #fff;
+}
+
+.entry-content .mejs-container .mejs-controls {
+    background: #932;
+}
+
+#playlist {
+    height: Calc(100vh - 510px);
+    overflow-y: auto;
+}
+
+.div-gif {
+    width: 10%;
+    height: 20px;
+    margin-top: -20px;
+}
+
+span.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ecualizador {
+    background-image: url(../img/ecualizador-02.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.li-pista {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border-bottom: 1px solid #6666;
+}
+
+.li-pista:hover {
+    -webkit-box-shadow: inset 6px 0px 42px -13px rgba(242, 234, 242, 1);
+    -moz-box-shadow: inset 6px 0px 42px -13px rgba(242, 234, 242, 1);
+    box-shadow: inset 6px 0px 42px -13px rgba(242, 234, 242, 1);
+}
+
+.item-opciones+.item-opciones,
+.item-opciones:first-child {
+    border-radius: 10rem;
+    color: #fff;
+    background-color: rgba(0, 0, 255, 0.795);
+}
+
+.opciones li:hover,
+.btn-pista:hover {
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: -1px 10px 5px -9px rgba(0, 0, 0, 0.75);
+}
+
+#title-cat {
+    color: rgba(0, 0, 255, 0.795);
+    border: 1px solid rgba(0, 0, 255, 0.795);
+    border-radius: 10rem;
+}
+
+.level-li {
+    border-bottom: 1px solid #fff;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, .0001) !important;
+}
+
+#content-modal-1,
+#content-modal-2 {
+    background-color: #673ab7;
+    width: auto;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.color-violeta {
+    color: #673ab7;
+}
+
+.color-gris {
+    color: #423f3f;
+}
+
+.borde-violeta {
+    border: 1px solid #673ab7;
+}
+
+.borde-verde {
+    border: 1px solid #076b1d;
+}
+
+.bg-violeta {
+    background-color: #673ab7;
+}

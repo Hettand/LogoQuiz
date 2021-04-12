@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LogoQuiz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!--Uikit-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <!--Archivo local-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <!--Modal bootstrap-->
+    <div class="modal" tabindex="-1" role="dialog" id="modal-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow" id="content-modal-1">
+                <div class="modal-body text-center" id="body-modal-1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end Modal bootstrap-->
+
+
+    <!--Contenedor-->
+    <div class="container">
+
+        <!--Panel juego-->
+        <div class="col-12 col-md-8 col-lg-6" id="panel-juego">
+
+            <div class="w-100 text-center">
+                <!--imágen LogoQuiz-->
+                <img src="img/marcas/logoQuiz.png" width="120">
+            </div>
+
+            <!--div de pistas-->
+            <div class="position-absolute bg-light text-center" style="right: 6%;" id="div-pistas">
+                <p>
+                    Tienes <span class="p-0" id="pistas-disponibles" uk-tooltip="title: Pistas disponibles">
+                        2
+                        </span> pistas
+                </p>
+
+                <button type="button" class="btn btn-info" id="btn-pista">
+                    PISTA
+                </button>
+                <div uk-dropdown="mode:click;pos:bottom-center" class="p-2 bg-light">
+                    <div id="pista-1" class="text-center">
+                        ¿Usar pista?
+                        <div class="w-100 py-2 form-inline justify-content-center">
+                            <button type="button" class="btn btn-primary py-0 mr-2" onclick="$('#btn-pista').click()">
+                                no
+                            </button>
+                            <button type="button" class="btn btn-primary py-0" onclick="verPista()">
+                                si
+                            </button>
+                        </div>
+                    </div>
+                    <div id="pista-2" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!--div marca-->
+            <div class="text-center" id="marca"></div>
+        </div>
+
+    </div>
+    <!--end Contenedor-->
+
+    <!--template marca-->
+    <script type="text/x-handlebars-template" id="temp-marca">
+        <div class="d-flex w-100">
+            <input type="hidden" id="miMarca" value="{{marca.id}}">
+            <img src="{{marca.src}}" width="180" class="m-auto">
+        </div>
+        <div>
+            <ul class="list-group opciones" id="ul-opciones">
+                {{#each opciones}}
+                <li class="list-group-item badge-pill m-2 p-1 item-opciones {{clase}}" id="{{opcionId}}" onclick="checkOption({{id}},'{{opcionId}}')">
+                    {{nombre}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+    <!--end template marca-->
+
+    <!--template pista-->
+    <script type="text/x-handlebars-template" id="temp-pista">
+        {{pista}}
+    </script>
+    <!--end template pista-->
+
+    <!--template reiniciar-->
+    <script type="text/x-handlebars-template" id="temp-reinicio">
+        <div class="h-100 py-4 bg-light">
+            <button type="button" class="btn rounded-circle shadow" onclick="getMarca(0)">
+                <img src="img/marcas/reload2.png" width="60">
+            </button>
+            <h3 class="text-white bg-violeta">Volver a jugar</h3>
+        </div>
+    </script>
+    <!--en template reiniciar-->
+    <!--template resultado final-->
+    <script type="text/x-handlebars-template" id="temp-show-result">
+        <div class="w-100 text-center">
+            <h5 class="text-white">Resultado</h5>
+            <h5 class="text-center badge-pill p-1 bg-white font-height-bold color-violeta">
+                {{contador}}/{{total}}
+            </h5>
+        </div>
+    </script>
+    <!--end template resultado final-->
+
+
+    <!--jQuery 3.4.1-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Boostrap 4.5-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!--end Boostrap-->
+
+    <!--Handlebars 4.1.2-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
+    <!--Uikit 3.5.4-->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    <!--end Uikit-->
+
+    <!--uuid 1.4.7-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+
+    <!--archivo local-->
+    <script type="text/javascript" src="js/marcas.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            getMarca(0)
+        })
+    </script>
+</body>
+
+</html>
